@@ -14,6 +14,7 @@ app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
 
 // Middleware
+app.use(express.json());
 app.use(morgan('dev'));
 app.use('/game', gameRouter)
 
@@ -22,27 +23,23 @@ app.get('/', (req, res) => {
   res.status(200).render('./index.ejs');
 })
 
-// // Internal Server Error Handler
-// app.use((err, req, res, next) => {
-//   console.log("Ada error")
-//   console.log(typeof err);
-//   if (err) {
-//     console.log(err);
-//   }
-//   res.status(500).json({
-//     status: 'error',
-//     error: err
-//   })
-// })
+// Internal Server Error Handler
+app.use((err, req, res, next) => {
+  console.log("Ada error")
+  console.log(typeof err);
+  if (err) {
+    console.log(err);
+  }
+  res.status(500).json({
+    status: 'error',
+    error: err
+  })
+})
 
-// // 404 Handler
-// app.use((req, res, next) => {
-//   console.log("Masuk 404");
-//   res.status(404).json({
-//     status: 'error',
-//     error: 'Page not found'
-//   })
-// })
+// 404 Handler
+app.use((req, res, next) => {
+  res.status(404).render('./404.ejs')
+})
 
 // Running Server
 app.listen(PORT, () => {
