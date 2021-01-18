@@ -10,12 +10,17 @@ const PORT = 3000;
 
 // view engine / template engine
 app.set('view engine', 'ejs');
+app.use(express.static(__dirname + '/public'));
 
 // Middleware
 app.use(morgan('dev'));
 
 app.get('/', (req, res) => {
   res.render('./index.ejs');
+})
+
+app.get('/game-trial', (req, res) => {
+  res.render('./game.ejs');
 })
 
 app.listen(PORT, () => {
