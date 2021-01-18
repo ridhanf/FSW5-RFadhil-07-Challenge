@@ -1,13 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 
+/* =================================== MOBILE VERSION ============================================= */
+
 html, body {
   color: white;
   font-family: 'Open Sans', sans-serif;
-  font-size: 14px;
+  font-size: 12px;
+  font-weight: normal;
 }
-
-/* =================================== MOBILE VERSION ============================================= */
 
 .navbar {
   font-family: 'Open Sans', sans-serif;
@@ -31,32 +32,9 @@ html, body {
   z-index: 1;
 } 
 
-h1 {
-  font-family: 'Bebas Neue', cursive;
-  font-size: 40px;
-  font-weight: bold;
-}
-
-h2 {
-  font-family: 'Bebas Neue', cursive;
-  font-size: 18px;
-  font-weight: bold;
-}
-
-h3 {
-  font-family: 'Bebas Neue', cursive;
-  font-size: 12px;
-  font-weight: bold;
-}
-
-h4{
-  color: orange;
-  font-weight: bold;
-}
-
 /* =================================== DESKTOP VERSION ============================================= */
-/* @media (min-width: 992px) {
 
+@media (min-width: 992px) {
   html, body {
     color: white;
     font-family: 'Open Sans', sans-serif;
@@ -130,32 +108,14 @@ h4{
     background-size: cover;
   }
 
-  .bg-1 {
+  main {
     background-image: url('../img/page/bg1.png');
-  }
-
-  .bg-2 {
-    background-image: radial-gradient(transparent, black), url('../img/page/bg2.png');
-  }
-
-  .bg-3 {
-    background-image: radial-gradient(transparent, black), url('../img/page/bg3.png');
-  }
-
-  .bg-4 {
-    background-image: radial-gradient(transparent, black), url('../img/page/bg4.png');
-  }
-
-  .bg-5 {
-    background-image: url('../img/page/bg5.png');
-  }
-
-  .bg-6 {
-    background-color: black;
+    background-repeat: no-repeat;
+    background-attachment: static;
+    background-size: cover;
   }
 
   .main {
-    background-image: url('../img/page/bg1.png');
     grid-area: main;
   }
 
@@ -169,6 +129,7 @@ h4{
   }
 
   .about {
+    background-image: radial-gradient(transparent, black), url('../img/page/bg2.png');
     grid-area: about;
   }
 
@@ -186,6 +147,7 @@ h4{
   }
 
   .features {
+    background-image: radial-gradient(transparent, black), url('../img/page/bg3.png');
     grid-area: features;
   }
 
@@ -197,7 +159,8 @@ h4{
     display: block;
   }
   .requirements {
-  grid-area: requirements;
+    background-image: radial-gradient(transparent, black), url('../img/page/bg4.png');
+    grid-area: requirements;
   }
 
   .requirements .row {
@@ -217,7 +180,8 @@ h4{
   }
 
   .quotes {
-  grid-area: quotes;
+    background-image: url('../img/page/bg5.png');
+    grid-area: quotes;
   }
 
   #quotes {
@@ -290,8 +254,8 @@ h4{
   }
 
   .subscribe {
-    grid-area: subscribe;
     background-color: black;
+    grid-area: subscribe;
   }
 
   .subscribe #subscribe-content {
@@ -350,5 +314,5 @@ h4{
   ::placeholder {
     color: red;
     opacity: 1;
-  }
-} */
+  }  
+}

@@ -21,131 +21,134 @@
   </head>
 
   <body>
-    <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top bg-nav">
-      <div class="container">
-        <div class="row" style="width: 100%; margin: 0;">
-          <div class="col-lg-1 justify-content-between d-flex">
-            <a class="navbar-brand" href="#"><strong>LOGO</strong></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-          </div>
-          <!-- NAVBAR MENU -->
-          <div class="col-lg d-flex ml-lg-5">
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <div class="navbar-nav">
-                <a class="nav-link" href="#">HOME<span class="sr-only">(current)</span></a>
-                <a class="nav-link" href="#">WORK</a>
-                <a class="nav-link" href="#subscribe">CONTACT</a>
-                <a class="nav-link" href="#about">ABOUT ME</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg d-flex">
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-              <div class="navbar-nav ml-auto">
-                <!-- SIGN UP Button trigger modal -->
-                <a class="nav-link" href="" data-toggle="modal" data-target="#SignUpModal">SIGN UP</a>
-                <!-- LOGIN Button trigger modal -->
-                <a class="nav-link" href="" data-toggle="modal" data-target="#LoginModal">LOGIN</a>
-              </div>
-            </div>
-          </div>
-          <!-- SIGN UP Modal -->
-          <div class="modal fade" id="SignUpModal" tabindex="-1" aria-labelledby="SignUpModalLabel"
-          aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="SignUpModalLabel">SIGN UP</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <form>
-                    <div class="form-group">
-                      <label for="SignUpInputEmail1">Email address</label>
-                      <input type="email" class="form-control" id="SignUpInputEmail1" aria-describedby="emailHelp">
-                      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
-                        else.</small>
-                    </div>
-                    <div class="form-group">
-                      <label for="SignUpInputPassword1">Password</label>
-                      <input type="password" class="form-control" id="SignUpInputPassword1">
-                    </div>
-                  </form>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Sign Up</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- LOGIN Modal -->
-          <div class="modal fade" id="LoginModal" tabindex="-1" aria-labelledby="LoginModalLabel"
-          aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="LoginModalLabel">LOGIN</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <form>
-                    <div class="form-group">
-                      <label for="LoginInputEmail1">Email address</label>
-                      <input type="email" class="form-control" id="LoginInputEmail1" aria-describedby="emailHelp">
-                    </div>
-                    <div class="form-group">
-                      <label for="LoginInputPassword1">Password</label>
-                      <input type="password" class="form-control" id="LoginInputPassword1">
-                    </div>
-                    <div class="form-group form-check">
-                      <input type="checkbox" class="form-check-input" id="LoginCheck1">
-                      <label class="form-check-label" for="LoginCheck1">Remember me</label>
-                    </div>
-                  </form>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Login</button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </nav>
-
     <!-- MAIN -->
-    <div class="main bg-1" id="home">
-      <!-- CALL TO ACTION  -->
-      <div id="jumbotron" class="jumbotron jumbotron-fluid content-center">
+    <main>
+      <!-- NAVBAR -->
+      <nav class="navbar navbar-expand-lg navbar-dark sticky-top bg-nav">
         <div class="container">
-          <h1>PLAY TRADITIONAL GAME</h1>
-          <h3>Experience new traditional game play</h3>
-          <p class="lead">
-            <a class="btn btn-warning btn-lg" href="/game" role="button">PLAY NOW</a>
-          </p>
-          <div class="down-arrow">
-            <a href="#about">
-              <p style="text-decoration: none; color: white;">THE STORY</p>
-              <img src="./img/page/scroll down.svg" alt="down arrow">
-            </a>
+          <div class="row" style="width: 100%; margin: 0;">
+            <div class="col-lg-1 justify-content-between d-flex">
+              <a class="navbar-brand" href="#"><strong>LOGO</strong></a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            </div>
+            <!-- NAVBAR MENU -->
+            <div class="col-lg d-flex ml-lg-5">
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="navbar-nav">
+                  <a class="nav-link" href="#">HOME<span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="#">WORK</a>
+                  <a class="nav-link" href="#subscribe">CONTACT</a>
+                  <a class="nav-link" href="#about">ABOUT ME</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg d-flex">
+              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ml-auto">
+                  <!-- SIGN UP Button trigger modal -->
+                  <a class="nav-link" href="" data-toggle="modal" data-target="#SignUpModal">SIGN UP</a>
+                  <!-- LOGIN Button trigger modal -->
+                  <a class="nav-link" href="" data-toggle="modal" data-target="#LoginModal">LOGIN</a>
+                </div>
+              </div>
+            </div>
+            <!-- SIGN UP Modal -->
+            <div class="modal fade" id="SignUpModal" tabindex="-1" aria-labelledby="SignUpModalLabel"
+            aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="SignUpModalLabel">SIGN UP</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form>
+                      <div class="form-group">
+                        <label for="SignUpInputEmail1">Email address</label>
+                        <input type="email" class="form-control" id="SignUpInputEmail1" aria-describedby="emailHelp">
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                          else.</small>
+                      </div>
+                      <div class="form-group">
+                        <label for="SignUpInputPassword1">Password</label>
+                        <input type="password" class="form-control" id="SignUpInputPassword1">
+                      </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Sign Up</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- LOGIN Modal -->
+            <div class="modal fade" id="LoginModal" tabindex="-1" aria-labelledby="LoginModalLabel"
+            aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="LoginModalLabel">LOGIN</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form>
+                      <div class="form-group">
+                        <label for="LoginInputEmail1">Email address</label>
+                        <input type="email" class="form-control" id="LoginInputEmail1" aria-describedby="emailHelp">
+                      </div>
+                      <div class="form-group">
+                        <label for="LoginInputPassword1">Password</label>
+                        <input type="password" class="form-control" id="LoginInputPassword1">
+                      </div>
+                      <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="LoginCheck1">
+                        <label class="form-check-label" for="LoginCheck1">Remember me</label>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Login</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+          </div>
+        </div>
+      </nav>
+  
+      <!-- JUMBOTRON -->
+      <div class="main" id="home">
+        <!-- CALL TO ACTION  -->
+        <div id="jumbotron" class="jumbotron jumbotron-fluid content-center">
+          <div class="container">
+            <h1>PLAY TRADITIONAL GAME</h1>
+            <h3>Experience new traditional game play</h3>
+            <p class="lead">
+              <a class="btn btn-warning btn-lg" href="/game" role="button">PLAY NOW</a>
+            </p>
+            <div class="down-arrow">
+              <a href="#about">
+                <p style="text-decoration: none; color: white;">THE STORY</p>
+                <img src="./img/page/scroll down.svg" alt="down arrow">
+              </a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </main>
 
     <!-- ABOUT -->
-    <div class="about bg-2 layer" id="about">
+    <div class="about layer" id="about">
       <div class="layer">
         <div class="row">
           <div class="col-4 about-title">
@@ -188,7 +191,7 @@
       </div>
     </div>
     <!-- FEATURES -->
-    <div class="features bg-3" id="features">
+    <div class="features" id="features">
       <div class="layer">
         <div class="row">
           <div class="col-4">
@@ -207,7 +210,7 @@
       </div>
     </div>
     <!-- REQUIREMENTS -->
-    <div class="requirements bg-4" id="requirements">
+    <div class="requirements" id="requirements">
       <div class="layer">
         <div class="row">
           <div class="col-4">
@@ -256,7 +259,7 @@
       </div>
     </div>
     <!-- QUOTES -->
-    <div class="quotes bg-5" id="quotes">
+    <div class="quotes" id="quotes">
       <div class="content-1">
         <h1>TOP SCORES</h1>
         <h3>This top score from various games provided on this platform</h3>
@@ -316,7 +319,7 @@
       </div>
     </div>
     <!-- SUBSCRIBE -->
-    <div class="subscribe bg-6" id="subscribe">
+    <div class="subscribe" id="subscribe">
       <div class="row">
         <div class="col-4">
           <img src="img/page/img6.png" alt="">
