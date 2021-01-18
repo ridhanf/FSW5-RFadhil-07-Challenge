@@ -54,6 +54,15 @@ main img {
   border-radius: 20px;
 }
 
+#player1 input {
+  display: inline;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0px;
+  width: 80%;
+  transform: scale(0.8);
+}
+
 #versus {
   grid-area: versus;
   text-align: center;
@@ -90,6 +99,15 @@ main img {
   display:inline-block;
   width: 12rem;
   border-radius: 20px;
+}
+
+#computer img {
+  display: inline;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0px;
+  width: 80%;
+  transform: scale(0.8);
 }
 
 #refresh-button {
@@ -157,7 +175,7 @@ main img {
     border-radius: 15px;
   }
 
-  #player1 img {
+  #player1 input {
     display: inline;
     margin-left: auto;
     margin-right: auto;
