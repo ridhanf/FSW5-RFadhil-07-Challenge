@@ -1,22 +1,28 @@
-# Code Challenge Chapter 3
+## Code Challenge Chapter 5 | Binar Academy
 
-This repository is a simple landing page with the application of HTML and CSS (using Bootstrap and manual type).
-This repository created to complete the task of Chapter 3 Code Challenge from Binar Academy.
+This repository is simple landing page and game trial feature with the application of HTML, CSS, Bootstrap, JavaScript, Node, and Express. This repository created to complete the Code Challenge of Chapter 5 from Binar Academy.
 
 Feel free to clone and code it by your self to learn more about HTML and CSS.
 
+### How to use
+Make sure you have [Node.js](https://nodejs.org/) and [NPM](https://www.npmjs.com/) installed.
+
+How to start:
 ```sh
-git clone https://github.com/ridhanf/FSW5_RFadhil_03_Challenge.git
+git clone https://github.com/ridhanf/FSW5-RFadhil-05-Challenge.git
+npm install
+npm run start
 ```
 
-Also, visit my [gitlab account](https://www.gitlab.com/ridhanf) and [HackerRank account](https://www.hackerrank.com/ridhanf).
+Server listening in port 3000
+```
+http://localhost:3000
+``` 
 
-Thanks.
+That's all. Thank you.
 
+&nbsp;
 
+Sincerely,
 
-Best regards,
-
-Ridhan Fadhilah, S.T.
-
-<a href="https://linkedin.com/in/ridhanf" target="_blank"><img src="https://image.flaticon.com/icons/png/512/174/174857.png" height="30"></a> &nbsp; 
+Ridhan Fadhilah
