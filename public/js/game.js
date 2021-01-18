@@ -1,8 +1,9 @@
 // -------------------------------------------- //
 // -------------------------------------------- //
 // Rock Paper Scissors Game
-// code by Ridhan Fadhilah
-// Yogyakarta, 13 Desember 2020
+// Code by Ridhan Fadhilah
+// Created: Yogyakarta, 13 December 2020
+// Updated: Bandung, 19 January 2021
 
 // ------------ Class Creation ---------------- //
 // Parent Class Player
@@ -130,4 +131,13 @@ const game1 = new Game({
 // MAIN PROGRAM
 const refreshButton = () => {
   game1.startGame();
+}
+
+const playerCard = (card) => {
+  player1.signs[card].style.backgroundColor = "gray";  // Player memilih sign ditandai dengan perubahan warna latar sign.
+  for (let i=0; i<3; i++) {
+    if (i !== card) {
+      player1.signs[i].style.backgroundColor =  "#AE876B"
+    }
+  }
 }
