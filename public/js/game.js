@@ -50,8 +50,8 @@ class Game {
       for (let i=0; i<3; i++) {
         player1.signs[i].style.backgroundColor =  "#AE876B"
         computer.signs[i].style.backgroundColor =  "#AE876B"
-        this.winDisplay.innerHTML = `<p class="versus">V S</p>`;
       }
+      this.winDisplay.innerHTML = `<p class="versus">V S</p>`;
       pickStatus = false;
     } else {
       let timesRun = 0;
@@ -129,6 +129,10 @@ const refreshButton = () => {
 
 const playerCard = (card) => {
   player1.signIdx = card;
+  game1.winDisplay.innerHTML = `<p class="versus">V S</p>`;
+  for (let i=0; i<3; i++) {
+    computer.signs[i].style.backgroundColor =  "#AE876B"
+  }
   player1.signs[card].style.backgroundColor = "gray";  // Player memilih sign ditandai dengan perubahan warna latar sign.
   for (let i=0; i<3; i++) {
     if (i !== card) {
