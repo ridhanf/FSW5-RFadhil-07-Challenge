@@ -19,7 +19,7 @@ app.use('/game', gameRouter)
 
 // Routing (Enpoints and Handlers)
 app.get('/', (req, res) => {
-  res.render('./index.ejs').status(200);
+  res.status(200).render('./index.ejs');
 })
 
 // // Internal Server Error Handler
