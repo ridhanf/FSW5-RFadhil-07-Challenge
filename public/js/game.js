@@ -1,8 +1,9 @@
 // -------------------------------------------- //
 // -------------------------------------------- //
 // Rock Paper Scissors Game
-// code by Ridhan Fadhilah
-// Yogyakarta, 13 Desember 2020
+// Code by Ridhan Fadhilah
+// Created: Yogyakarta, 13 December 2020
+// Updated: Bandung, 19 January 2021
 
 // ------------ Class Creation ---------------- //
 // Parent Class Player
@@ -17,52 +18,18 @@ class Player {
     this.signs = signs;     // DOM Sign pada Game
     this.signIdx = signIdx; // Index Sign: 0 = batu, 1 = kertas, 2 = gunting
   }
-
-  pickSign() {
-    let timesRun = 0;
-    let signIdxBefore = 0;
-    let intervalGenerator = setInterval(() => {
-      this.signIdx = Math.floor(Math.random() * 3);   // Men-generate angka random untuk index sebagai sign
-      this.signs[this.signIdx].style.backgroundColor = "gray";  // Player memilih sign ditandai dengan perubahan warna latar sign.
-      if (timesRun > 0) {
-        this.signs[signIdxBefore].style.backgroundColor =  "#AE876B"; // Player tidak jadi memilih sign sebelumnya ditandai warna latar kembali seperti semula.
-      }
-      signIdxBefore = this.signIdx;
-      timesRun += 1;
-      if (timesRun == 25) {
-        clearInterval(intervalGenerator);
-        this.signs[this.signIdx].style.backgroundColor = "gray";  // Sign yg pada akhirnya dipilih oleh Player.
-        timesRun = 0;
-      }
-    }, 50);
-  }
-}
-
-// Module/Helper using mix-ins
-const HumanPlayer = Base => class extends Base {
-  refreshGame() {
-    super.pickSign();
-  }
 }
 
 // Child Class
-class NormalPlayer extends HumanPlayer(Player) {
+class HumanPlayer extends Player {
   constructor(props) {
     super(props);
-  }
-
-  refresh() {
-    super.refreshGame();
   }
 }
 
 class Computer extends Player {
   constructor(props) {
     super(props);
-  }
-
-  pickSign() {
-    super.pickSign();
   }
 }
 
@@ -79,12 +46,34 @@ class Game {
   }
 
   startGame() {
-    this.winDisplay.innerHTML = `<p class="versus">V S</p>`;
-    this.player1.refresh();
-    this.player2.pickSign();
-    setTimeout(() => {
-      this.whoWin(this.player1.signIdx, this.player2.signIdx);
-    }, 1250)
+    if (computer.signs[0].style.backgroundColor == "gray" || computer.signs[1].style.backgroundColor == "gray" || computer.signs[2].style.backgroundColor == "gray") {
+      for (let i=0; i<3; i++) {
+        player1.signs[i].style.backgroundColor =  "#AE876B"
+        computer.signs[i].style.backgroundColor =  "#AE876B"
+      }
+      this.winDisplay.innerHTML = `<p class="versus">V S</p>`;
+      pickStatus = false;
+    } else {
+      let timesRun = 0;
+      let signIdxBefore = 0;
+      let intervalGenerator = setInterval(() => {
+        this.player2.signIdx = Math.floor(Math.random() * 3);   // Men-generate angka random untuk index sebagai sign
+        this.player2.signs[this.player2.signIdx].style.backgroundColor = "gray";  // Player memilih sign ditandai dengan perubahan warna latar sign.
+        if (timesRun > 0) {
+          this.player2.signs[signIdxBefore].style.backgroundColor =  "#AE876B"; // Player tidak jadi memilih sign sebelumnya ditandai warna latar kembali seperti semula.
+        }
+        signIdxBefore = this.player2.signIdx;
+        timesRun += 1;
+        if (timesRun == 25) {
+          clearInterval(intervalGenerator);
+          this.player2.signs[this.player2.signIdx].style.backgroundColor = "gray";  // Sign yg pada akhirnya dipilih oleh Player.
+          timesRun = 0;
+        }
+      }, 50);
+      setTimeout(() => {
+        this.whoWin(this.player1.signIdx, this.player2.signIdx);
+      }, 1250)
+    }
   }
 
   whoWin(player1, player2) {
@@ -109,7 +98,7 @@ class Game {
 // -------------------------------------------- //
 
 // Instantiate Player
-const player1 = new NormalPlayer({
+const player1 = new HumanPlayer({
   name: "Player 1",
   signs: document.getElementsByClassName("player1Sign"),
 })
@@ -128,6 +117,27 @@ const game1 = new Game({
 
 
 // MAIN PROGRAM
-const refreshButton = () => {
-  game1.startGame();
+let pickStatus = false;
+
+const refreshButton = () => { 
+  if (!pickStatus) {
+    alert('Pick your sign!');
+  } else {
+    game1.startGame();
+  } 
+}
+
+const playerCard = (card) => {
+  player1.signIdx = card;
+  game1.winDisplay.innerHTML = `<p class="versus">V S</p>`;
+  for (let i=0; i<3; i++) {
+    computer.signs[i].style.backgroundColor =  "#AE876B"
+  }
+  player1.signs[card].style.backgroundColor = "gray";  // Player memilih sign ditandai dengan perubahan warna latar sign.
+  for (let i=0; i<3; i++) {
+    if (i !== card) {
+      player1.signs[i].style.backgroundColor =  "#AE876B"
+    }
+  }
+  pickStatus = true;
 }
