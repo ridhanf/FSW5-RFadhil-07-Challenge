@@ -4,7 +4,7 @@ const express = require('express');
 const gameRouter = express.Router({caseSensitive: false});
 
 gameRouter.get('/', (req, res) => {
-  res.render('game.ejs').status(200);
+  res.status(200).render('game.ejs');
 })
 
 module.exports = gameRouter;
