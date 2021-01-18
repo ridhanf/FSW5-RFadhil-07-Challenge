@@ -1,0 +1,17 @@
+{
+  "name": "binar-ch05-challenge",
+  "version": "1.0.0",
+  "description": "Binar Chapter 05 Code Challenge",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "keywords": [
+    "javascript",
+    "node.js",
+    "express"
+  ],
+  "author": "ridhanf",
+  "license": "MIT"
+}
