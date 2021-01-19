@@ -314,5 +314,9 @@ html, body {
   ::placeholder {
     color: red;
     opacity: 1;
-  }  
+  }
+  
+  .close{
+    z-index:999999;
+  }
 }
