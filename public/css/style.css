@@ -401,7 +401,7 @@ hr {
   }
   
   .profile {
-    width: 350px;
+    width: 400px;
   }
 
   .avatar {
@@ -440,7 +440,7 @@ hr {
     padding-top: 10%;
     padding-left: 10%;
     padding-right: 10%;
-    padding-bottom: 10%;
+    padding-bottom: 5%;
     background-size: 25%;
     background-position-x: 20%;
     background-position-y: 50%;
@@ -499,5 +499,4 @@ hr {
   .close{
     z-index:999999;
   }
-
 }
