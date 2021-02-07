@@ -1,7 +1,7 @@
 /* =================================== DESKTOP VERSION ============================================= */
-html, body {
+* {
   background-color: #AE876B;
-  width: 100%;
+  max-width: 100%;
   font-family: sans-serif;
 }
 
@@ -124,7 +124,6 @@ main img {
 @media (max-width: 992px) {
   html, body {
     background-color: #AE876B;
-    width: 100%;
     font-family: sans-serif;
     font-size: 12;
   }
