@@ -1,49 +1,31 @@
 // Import Module
 const express = require('express');
 const morgan = require('morgan');
-const gameRouter = require('./router-game.js')
+const gameRouter = require('./routes/router-game.js');
+const dashboardRouter = require('./routes/router-dashboard.js');
+const middleware = require('./utils/middleware');
 
 // Activte Express Module
 const app = express();
 
-// Port Declaration
-const PORT = 3000;
-
 // view engine / template engine
-app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
+app.set('view engine', 'ejs');
 
 // Middleware
 app.use(express.json());
+app.use(express.urlencoded({extended: false}));
 app.use(morgan('dev'));
-app.use('/game', gameRouter)
+app.use('/game', gameRouter);
+app.use('/dashboard', dashboardRouter);
 
-// Routing (Enpoints and Handlers)
+// Routing (Endpoints and Handlers)
 app.get('/', (req, res) => {
   res.status(200).render('./index.ejs');
 })
 
-// Internal Server Error Handler
-app.use((err, req, res, next) => {
-  console.log("Ada error")
-  console.log(typeof err);
-  if (err) {
-    console.log(err);
-  }
-  res.status(500).json({
-    status: 'error',
-    error: err
-  })
-  next();
-})
+// Error Handlers
+app.use(middleware.errorHandler); // Internal Server Error Handler
+app.use(middleware.error404Handler); // Error 404 Handler
 
-// 404 Handler
-app.use((req, res, next) => {
-  res.status(404).render('./404.ejs')
-  next();
-})
-
-// Running Server
-app.listen(PORT, () => {
-  console.log(`Server listening on port ${PORT} (http://localhost:${PORT})`)
-})
+module.exports = app;

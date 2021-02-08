@@ -4,8 +4,8 @@
   "description": "Binar Chapter 05 Code Challenge",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon app.js"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
   "keywords": [
     "node.js",
