@@ -2,21 +2,21 @@
   "development": {
     "username": "fadhil",
     "password": "passwordpalingsusah",
-    "database": "gameDB_development",
+    "database": "fadhilDB",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {
     "username": "fadhil",
     "password": "passwordpalingsusah",
-    "database": "gameDB_test",
+    "database": "fadhilDB_test",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "production": {
     "username": "fadhil",
     "password": "passwordpalingsusah",
-    "database": "gameDB_production",
+    "database": "fadhilDB_production",
     "host": "127.0.0.1",
     "dialect": "postgres"
   }
