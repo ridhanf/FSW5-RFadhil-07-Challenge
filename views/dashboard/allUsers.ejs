@@ -1,22 +1,22 @@
 <html>
   <head>
-    <%- include('../header.ejs') %>
+    <%- include('../head.ejs') %>
     <title>Players | All</title>
   </head>
   <body>
     <div class="container mt-5">
-      <h3>All Players</h3>
+      <h3>Game Players</h3>
       <div class="alert alert-info" role="alert">
         <p>
           <strong>READ</strong> operation - Table <samp>user_game</samp> joining
           <samp>user_game_biodata</samp> and <samp>user_game_history</samp>.
           <br />
-          Click detail to make <strong>UPDATE</strong> and
-          <strong>DELETE</strong> operation
+          Click <strong>CREATE NEW USER</strong> to add a new user.
+          Click <strong>UPDATE</strong> to update user info. Click <strong>DELETE</strong> to delete user.
         </p>
       </div>
-      <a href="/create-player">
-        <button class="btn btn-primary">Create New Player</button>
+      <a href="/dashboard/create">
+        <button class="btn btn-primary">CREATE NEW USER</button>
       </a>
       <table class="table mt-5">
         <thead>
@@ -30,21 +30,21 @@
           </tr>
         </thead>
         <tbody>
-          <% users.forEach(i => { %>
+          <% users.forEach(user => { %>
           <tr>
-            <td><%= i.username %></td>
-            <td><%= i.UserBio.firstname %></td>
-            <td><%= i.UserBio.lastname %></td>
-            <td><%= i.email %></td>
+            <td><%= user.username %></td>
+            <td><%= user.UserBio.firstname %></td>
+            <td><%= user.UserBio.lastname %></td>
+            <td><%= user.email %></td>
             <td>********</td>
             <td>
-              <a href="/users/<%= i.id %>">
+              <a href="/dashboard/users/<%= user.id %>">
                 <button class="btn btn-outline-info">Detail</button>
               </a>
-              <a href="/users/<%= i.id %>">
+              <a href="/dashboard/users/<%= user.id %>">
                 <button class="btn btn-outline-success">Update</button>
               </a>
-              <a href="/users/<%= i.id %>">
+              <a href="/dashboard/delete/<%= user.id %>">
                 <button class="btn btn-outline-danger">Delete</button>
               </a>
             </td>

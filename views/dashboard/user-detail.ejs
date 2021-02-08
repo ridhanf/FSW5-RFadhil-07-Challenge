@@ -7,7 +7,7 @@
   <body>
     <div class="container mt-5">
       <h3>Player Detail</h3>
-      <a href="/players"><< Back to Players list</a>
+      <a href="/dashboard/users"><< Back to Players list</a>
       <div class="alert alert-info mt-3" role="alert">
         <p>
           <strong>DELETE</strong> operation - (ON CASCADE) Table
@@ -16,10 +16,10 @@
         </p>
       </div>
       <div class="mt-5">
-        <a href="update-player/<%= player.id %>">
+        <a href="/dashboard/users/<%= user.id %>">
           <button class="btn btn-outline-success">Update</button>
         </a>
-        <a href="delete/<%= player.id %>">
+        <a href="/dashboard/delete/<%= user.id %>">
           <button class="btn btn-outline-danger">Delete</button>
         </a>
       </div>
@@ -28,27 +28,31 @@
         <tbody>
           <tr>
             <th>Id</th>
-            <td><%= player.id %></td>
+            <td><%= user.id %></td>
           </tr>
           <tr>
             <th>Username</th>
-            <td><%= player.username %></td>
+            <td><%= user.username %></td>
           </tr>
           <tr>
             <th>Email</th>
-            <td><%= player.email %></td>
+            <td><%= user.email %></td>
+          </tr>
+          <tr>
+            <th>Password</th>
+            <td><%= user.password %></td>
           </tr>
           <tr>
             <th>First Name</th>
-            <td><%= player.PlayerBio.first_name %></td>
+            <td><%= user.UserBio.firstname %></td>
           </tr>
           <tr>
             <th>Last Name</th>
-            <td><%= player.PlayerBio.last_name %></td>
+            <td><%= user.UserBio.lastname %></td>
           </tr>
           <tr>
             <th>City</th>
-            <td><%= player.PlayerBio.city %></td>
+            <td><%= user.UserBio.city %></td>
           </tr>
         </tbody>
       </table>
@@ -56,17 +60,17 @@
       <table class="table mt-3">
         <thead>
           <tr>
-            <th>Level</th>
-            <th>Experience</th>
-            <th>Last active</th>
+            <th>winStatus</th>
+            <th>score</th>
+            <th>Last login</th>
           </tr>
         </thead>
         <tbody>
-          <% player.PlayerHistories.forEach(i => { %>
+          <% user.UserHistories.forEach(info => { %>
           <tr>
-            <td><%= i.level %></td>
-            <td><%= i.experience %></td>
-            <td><%= i.last_login %></td>
+            <td><%= info.winStatus %></td>
+            <td><%= info.score %></td>
+            <td><%= info.last_login %></td>
           </tr>
           <% }) %>
         </tbody>
