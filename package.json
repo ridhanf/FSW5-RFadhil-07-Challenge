@@ -1,5 +1,5 @@
 {
-  "name": "binar-ch05-challenge",
+  "name": "binar-ch06-challenge",
   "version": "1.0.0",
   "description": "Binar Chapter 05 Code Challenge",
   "main": "app.js",
@@ -8,9 +8,9 @@
     "dev": "nodemon app.js"
   },
   "keywords": [
-    "javascript",
     "node.js",
-    "express"
+    "express",
+    "sequelize"
   ],
   "author": "ridhanf",
   "license": "MIT",
