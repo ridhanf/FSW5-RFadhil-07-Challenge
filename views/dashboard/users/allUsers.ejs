@@ -1,6 +1,6 @@
 <html>
   <head>
-    <%- include('../head.ejs') %>
+    <%- include('../header.ejs') %>
     <title>Players | All</title>
   </head>
   <body>
@@ -25,19 +25,27 @@
             <th>First name</th>
             <th>Last name</th>
             <th>Email</th>
+            <th>Password</th>
             <th>Actions</th>
           </tr>
         </thead>
         <tbody>
-          <% players.forEach(i => { %>
+          <% users.forEach(i => { %>
           <tr>
             <td><%= i.username %></td>
-            <td><%= i.PlayerBio.first_name %></td>
-            <td><%= i.PlayerBio.last_name %></td>
+            <td><%= i.UserBio.firstname %></td>
+            <td><%= i.UserBio.lastname %></td>
             <td><%= i.email %></td>
+            <td>********</td>
             <td>
-              <a href="/players/<%= i.id %>">
+              <a href="/users/<%= i.id %>">
                 <button class="btn btn-outline-info">Detail</button>
+              </a>
+              <a href="/users/<%= i.id %>">
+                <button class="btn btn-outline-success">Update</button>
+              </a>
+              <a href="/users/<%= i.id %>">
+                <button class="btn btn-outline-danger">Delete</button>
               </a>
             </td>
           </tr>
