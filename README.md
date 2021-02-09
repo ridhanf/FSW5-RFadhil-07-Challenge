@@ -4,11 +4,14 @@
 
 This is a landing page with paper rock scissors game and CRUD Dashboard using NodeJS, Express, PostgreSQL and Sequelize. This repository created to complete the Code Challenge of Chapter 6 from Binar Academy. There are 4 tables on the database after installation: `user_game`, `user_game_biodata`, `user_game_history`, `SequelizeMeta` (stores postgres setting).
 
-<img alt="Admin Login" height="auto" src="./preview/admin-login.png"/>
-<img alt="Admin Dashboard" height="auto" src="./preview/admin-dashboard.png"/>
-<img alt="Landing Page" height="auto" src="./preview/landing-page.png"/>
-<img alt="Game" height="auto" src="./preview/game.png"/>
-<img alt="Landing Page Mobile" height="auto" src="./preview/landing-page-mobile.png"/><img alt="Game Mobile" height="auto" src="./preview/game-mobile.png"/>
+![Admin Login](https://github.com/ridhanf/FSW5-RFadhil-06-Challenge/blob/feature/dashboard/preview/admin-login.png?raw=true)
+![Admin Dashboard](https://github.com/ridhanf/FSW5-RFadhil-06-Challenge/blob/feature/dashboard/preview/admin-dashboard.png?raw=true)
+![Landing Page](https://github.com/ridhanf/FSW5-RFadhil-06-Challenge/blob/feature/dashboard/preview/landing-page.png?raw=true)
+![Game](https://github.com/ridhanf/FSW5-RFadhil-06-Challenge/blob/feature/dashboard/preview/game.png?raw=true)
+
+Solarized dark             |  Solarized Ocean
+:-------------------------:|:-------------------------:
+![Landing Page Mobile](https://github.com/ridhanf/FSW5-RFadhil-06-Challenge/blob/feature/dashboard/preview/landing-page-mobile.png?raw=true)  |  ![Game Mobile](https://github.com/ridhanf/FSW5-RFadhil-06-Challenge/blob/feature/dashboard/preview/game-mobile.png?raw=true)
 
 Routes:
 
