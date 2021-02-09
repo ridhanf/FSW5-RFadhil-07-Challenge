@@ -1,8 +1,17 @@
-## Code Challenge Chapter 6 | Binar Academy
+## Code Challenge Chapter 6 | CRUD Dashboard | Binar Academy
 
 ### Description
 
 This is a landing page with paper rock scissors game and CRUD Dashboard using NodeJS, Express, PostgreSQL and Sequelize. This repository created to complete the Code Challenge of Chapter 6 from Binar Academy. There are 4 tables on the database after installation: `user_game`, `user_game_biodata`, `user_game_history`, `SequelizeMeta` (stores postgres setting).
+
+![Admin Login](https://github.com/ridhanf/FSW5-RFadhil-06-Challenge/blob/feature/dashboard/preview/admin-login.png?raw=true)
+![Admin Dashboard](https://github.com/ridhanf/FSW5-RFadhil-06-Challenge/blob/feature/dashboard/preview/admin-dashboard.png?raw=true)
+![Landing Page](https://github.com/ridhanf/FSW5-RFadhil-06-Challenge/blob/feature/dashboard/preview/landing-page.png?raw=true)
+![Game](https://github.com/ridhanf/FSW5-RFadhil-06-Challenge/blob/feature/dashboard/preview/game.png?raw=true)
+
+Landing Page Mobile        |  Game Mobile
+:-------------------------:|:-------------------------:
+![Landing Page Mobile](https://github.com/ridhanf/FSW5-RFadhil-06-Challenge/blob/feature/dashboard/preview/landing-page-mobile.png?raw=true)  |  ![Game Mobile](https://github.com/ridhanf/FSW5-RFadhil-06-Challenge/blob/feature/dashboard/preview/game-mobile.png?raw=true)
 
 Routes:
 
@@ -39,6 +48,7 @@ $ cd FSW5-RFadhil-06-Challenge
 ```
 
 **2. Install Dependencies**
+
 Make sure you have [Node.js](https://nodejs.org/) and [NPM](https://www.npmjs.com/) installed. Project dependencies listed in `package.json`.
 
 ```
@@ -46,6 +56,7 @@ $ npm install
 ```
 
 **3. Run sequelize**
+
 Generate database
 
 ```
@@ -59,7 +70,8 @@ $ sequelize db:migrate
 $ sequelize db:seed:all
 ```
 
-**5. Run the server**
+**4. Run the server**
+
 Run server with:
 
 ```
@@ -72,15 +84,16 @@ or
 $ npm run dev
 ```
 
-Server listening in port 3000 (open http://localhost:3000)
-
-The app will automatically reload if you make changes to the code.
-You will see the build errors and warnings in the console.
-
-That's all. Thank you.
-
 &nbsp;
 
+Server listening in port 3000 (open http://localhost:3000)
+
+This app will automatically reload if you make changes to the code.
+You will see the build errors and warnings in the console. That's all. Thank you.
+
+
 Sincerely,
+
+&nbsp;
 
 Ridhan Fadhilah
