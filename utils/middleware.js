@@ -1,6 +1,6 @@
 // Internal Server Error Handler
 const errorHandler = (err, req, res, next) => {
-  console.log("Ada error")
+  console.log("Server Error")
   console.log(typeof err);
   if (err) {
     console.log(err);

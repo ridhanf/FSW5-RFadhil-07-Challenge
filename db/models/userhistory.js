@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       winStatus: {
         type: DataTypes.STRING,
-        defaultValue: "draw",
+        defaultValue: "Not play yet",
         allowNull: false
       },
       score: {
