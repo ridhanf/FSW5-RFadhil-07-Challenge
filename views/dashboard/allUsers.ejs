@@ -37,16 +37,16 @@
             <td><%= user.UserBio.lastname %></td>
             <td><%= user.email %></td>
             <td>********</td>
-            <td>
+            <td class="row">
               <a href="/dashboard/users/<%= user.id %>">
                 <button class="btn btn-outline-info">Detail</button>
               </a>
-              <a href="/dashboard/users/<%= user.id %>">
+              <form method="POST" action="/dashboard/users/<%= user.id %>?_method=PUT">
                 <button class="btn btn-outline-success">Update</button>
-              </a>
-              <a href="/dashboard/delete/<%= user.id %>">
+              </form>
+              <form method="POST" action="/dashboard/users/<%= user.id %>?_method=DELETE">
                 <button class="btn btn-outline-danger">Delete</button>
-              </a>
+              </form>
             </td>
           </tr>
           <% }) %>
