@@ -7,8 +7,20 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         defaultValue: DataTypes.UUIDV1
       },
-      username: { type: DataTypes.STRING, allowNull: false, unique: true },
-      email: { type: DataTypes.STRING, allowNull: false }
+      username: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true
+      },
+      email: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        uniqe: true
+      },
+      password: {
+        type: DataTypes.STRING,
+        allowNull: false
+      }
     },
     {
       sequelize,
