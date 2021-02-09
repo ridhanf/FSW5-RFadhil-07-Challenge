@@ -10,15 +10,14 @@
       <a href="/dashboard/users"><< Back to Players list</a>
       <div class="alert alert-info mt-3" role="alert">
         <p>
-          <strong>DELETE</strong> operation - (ON CASCADE) Table
-          <samp>user_game</samp>, <samp>user_game_biodata</samp> and
-          <samp>user_game_history</samp>.
+          Click <strong>UPDATE</strong> to update user info.
+          Click <strong>DELETE</strong> to delete user.
         </p>
       </div>
       <div class="row mt-5">
-        <form method="POST" action="/dashboard/users/<%= user.id %>?_method=PUT">
+        <a href="/dashboard/users/update/<%= user.id %>">
           <button class="btn btn-outline-success">Update</button>
-        </form>
+        </a>
         <form method="POST" action="/dashboard/users/<%= user.id %>?_method=DELETE">
           <button class="btn btn-outline-danger">Delete</button>
         </form>

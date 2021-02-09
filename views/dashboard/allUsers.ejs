@@ -41,9 +41,12 @@
               <a href="/dashboard/users/<%= user.id %>">
                 <button class="btn btn-outline-info">Detail</button>
               </a>
-              <form method="POST" action="/dashboard/users/<%= user.id %>?_method=PUT">
+              <a href="/dashboard/users/update/<%= user.id %>">
                 <button class="btn btn-outline-success">Update</button>
-              </form>
+              </a>
+              <!-- <form method="POST" action="/dashboard/users/<%= user.id %>?_method=PUT">
+                <button class="btn btn-outline-success">Update</button>
+              </form> -->
               <form method="POST" action="/dashboard/users/<%= user.id %>?_method=DELETE">
                 <button class="btn btn-outline-danger">Delete</button>
               </form>

@@ -34,7 +34,7 @@ dashboardRouter.get('/users', async (req, res) => {
   res.status(200).render('dashboard/allUsers', { users })
 })
 
-// GET create page
+// GET create page for POST /users/create
 dashboardRouter.get('/create', async (req, res) => {
   res.status(200).render('dashboard/create');
 })
@@ -61,7 +61,7 @@ dashboardRouter.post('/users/create', async (req, res) => {
   {
     include: [db.UserBio, db.UserHistory]
   })
-  res.status(201).render('dashboard/create-success');
+  res.status(201).redirect('/dashboard/users');
 })
 
 // READ database using GET /users/:id
@@ -70,12 +70,52 @@ dashboardRouter.get('/users/:id', async (req, res) => {
     include: [db.UserBio, db.UserHistory]
   }).then(user => {
     if(user) {
-      res.status(200).render('dashboard/user-detail', {user});
+      res.status(200).render('dashboard/userDetail', {user});
     }
   })
 })
 
+// GET create page for POST /users/create
+dashboardRouter.get('/users/update/:id', async (req, res) => {
+  await db.User.findByPk(req.params.id, {
+    include: [db.UserBio, db.UserHistory]
+  }).then(user => {
+    if(user) {
+      res.status(200).render('dashboard/update', {user});
+    }
+  }) 
+})
+
 // UPDATE databse using PUT /users/:id
+dashboardRouter.put('/users/update/:id', async (req, res) => {
+  const data = req.body;
+  await db.User.update({ email: data.email }, {
+    where:{
+      id:req.params.id
+    }
+  })
+  await db.UserBio.update({
+    firstname:data.firstname,
+    lastname:data.lastname,
+    city: data.city
+  },{
+    where: {
+      uid: req.params.id
+    }
+  })
+  await db.UserHistory.update(
+    {
+      winStatus: data.winStatus,
+      score: data.score,
+    },
+    {
+      where: {
+        user_id: req.params.id,
+      },
+    }
+  )
+  res.redirect(`/dashboard/users/${req.params.id}`)
+})
 
 // DELETE database using DELETE /users/:id
 dashboardRouter.delete('/users/:id', async (req, res) => {
