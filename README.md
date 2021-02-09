@@ -9,7 +9,7 @@ This is a landing page with paper rock scissors game and CRUD Dashboard using No
 ![Landing Page](https://github.com/ridhanf/FSW5-RFadhil-06-Challenge/blob/feature/dashboard/preview/landing-page.png?raw=true)
 ![Game](https://github.com/ridhanf/FSW5-RFadhil-06-Challenge/blob/feature/dashboard/preview/game.png?raw=true)
 
-Solarized dark             |  Solarized Ocean
+Landing Page Mobile        |  Game Mobile
 :-------------------------:|:-------------------------:
 ![Landing Page Mobile](https://github.com/ridhanf/FSW5-RFadhil-06-Challenge/blob/feature/dashboard/preview/landing-page-mobile.png?raw=true)  |  ![Game Mobile](https://github.com/ridhanf/FSW5-RFadhil-06-Challenge/blob/feature/dashboard/preview/game-mobile.png?raw=true)
 
