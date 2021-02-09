@@ -1,15 +1,15 @@
-## Code Challenge Chapter 6 | CRUD Management Dashboard | Binar Academy
+## Code Challenge Chapter 6 | CRUD Dashboard | Binar Academy
 
 ### Description
+
+This is a landing page with paper rock scissors game and CRUD Dashboard using NodeJS, Express, PostgreSQL and Sequelize. This repository created to complete the Code Challenge of Chapter 6 from Binar Academy. There are 4 tables on the database after installation: `user_game`, `user_game_biodata`, `user_game_history`, `SequelizeMeta` (stores postgres setting).
 
 <img alt="Admin Login" height="auto" src="./preview/admin-login.png"/>
 <img alt="Admin Dashboard" height="auto" src="./preview/admin-dashboard.png"/>
 <img alt="Landing Page" height="auto" src="./preview/landing-page.png"/>
 <img alt="Landing Page Mobile" height="auto" src="./preview/landing-page-mobile.png"/>
 <img alt="Game Mobile" height="auto" src="./preview/game-mobile.png"/>
-<img alt="Game" height="auto" src="./preview/Game.png"/>
-
-This is a landing page with paper rock scissors game and CRUD Dashboard using NodeJS, Express, PostgreSQL and Sequelize. This repository created to complete the Code Challenge of Chapter 6 from Binar Academy. There are 4 tables on the database after installation: `user_game`, `user_game_biodata`, `user_game_history`, `SequelizeMeta` (stores postgres setting).
+<img alt="Game" height="auto" src="./preview/game.png"/>
 
 Routes:
 
