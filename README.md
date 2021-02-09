@@ -7,9 +7,8 @@ This is a landing page with paper rock scissors game and CRUD Dashboard using No
 <img alt="Admin Login" height="auto" src="./preview/admin-login.png"/>
 <img alt="Admin Dashboard" height="auto" src="./preview/admin-dashboard.png"/>
 <img alt="Landing Page" height="auto" src="./preview/landing-page.png"/>
-<img alt="Landing Page Mobile" height="auto" src="./preview/landing-page-mobile.png"/>
-<img alt="Game Mobile" height="auto" src="./preview/game-mobile.png"/>
 <img alt="Game" height="auto" src="./preview/game.png"/>
+<img alt="Landing Page Mobile" height="auto" src="./preview/landing-page-mobile.png"/><img alt="Game Mobile" height="auto" src="./preview/game-mobile.png"/>
 
 Routes:
 
