@@ -84,12 +84,13 @@ or
 $ npm run dev
 ```
 
+&nbsp;
+
 Server listening in port 3000 (open http://localhost:3000)
 
 This app will automatically reload if you make changes to the code.
-You will see the build errors and warnings in the console.
+You will see the build errors and warnings in the console. That's all. Thank you.
 
-That's all. Thank you.
 
 Sincerely,
 
