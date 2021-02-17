@@ -29,14 +29,6 @@ PUT    /dashboard/users/update/:id    """Update User Info"""
 DELETE /dashboard/users/:id           """Delete User"""
 ```
 
-info 
-
-- `db/migrations` contains sequelize migration files
-- `db/models` contains sequelize models files
-- `db/seeders` contains sequelize seeders files
-- `config/config.json` setting for sequelize
-- `utils/middleware.js` Error handlers middleware
-- `.sequelizerc` sequelize initialization setting
 
 ### Instalation
 
@@ -88,8 +80,7 @@ $ npm run dev
 
 Server listening in port 3000 (open http://localhost:3000)
 
-This app will automatically reload if you make changes to the code.
-You will see the build errors and warnings in the console. That's all. Thank you.
+That's all. Thank you.
 
 
 Sincerely,
