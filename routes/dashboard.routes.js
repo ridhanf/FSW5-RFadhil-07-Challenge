@@ -4,13 +4,13 @@ const db = require('../db/models');
 const methodOverride = require('method-override');
 const { v4: uuidv4 } = require('uuid');
 
-const dashboardRouter = express.Router({caseSensitive: false});
+const router = express.Router({caseSensitive: false});
 
 // middleware
-dashboardRouter.use(methodOverride('_method'));
+router.use(methodOverride('_method'));
 
 // main dashboard route
-dashboardRouter.get('/', (req, res) => {
+router.get('/', (req, res) => {
   res.status(200).render('dashboard/dashboard');
 })
 
@@ -24,10 +24,10 @@ const loginHandler = async (req, res) => {
   }
 }
 
-dashboardRouter.post('/login', loginHandler);
+router.post('/login', loginHandler);
 
 // READ databse using GET /users
-dashboardRouter.get('/users', async (req, res) => {
+router.get('/users', async (req, res) => {
   const users = await db.User.findAll({
     include: [db.UserBio, db.UserHistory],
   })
@@ -35,12 +35,12 @@ dashboardRouter.get('/users', async (req, res) => {
 })
 
 // GET create page for POST /users/create
-dashboardRouter.get('/create', async (req, res) => {
+router.get('/create', async (req, res) => {
   res.status(200).render('dashboard/create');
 })
 
 // CREATE database using POST /users/create
-dashboardRouter.post('/users/create', async (req, res) => {
+router.post('/users/create', async (req, res) => {
   const user = req.body;
   const uuid = uuidv4();
   await db.User.create({
@@ -65,7 +65,7 @@ dashboardRouter.post('/users/create', async (req, res) => {
 })
 
 // READ database using GET /users/:id
-dashboardRouter.get('/users/:id', async (req, res) => {
+router.get('/users/:id', async (req, res) => {
   await db.User.findByPk(req.params.id, {
     include: [db.UserBio, db.UserHistory]
   }).then(user => {
@@ -76,7 +76,7 @@ dashboardRouter.get('/users/:id', async (req, res) => {
 })
 
 // GET create page for POST /users/create
-dashboardRouter.get('/users/update/:id', async (req, res) => {
+router.get('/users/update/:id', async (req, res) => {
   await db.User.findByPk(req.params.id, {
     include: [db.UserBio, db.UserHistory]
   }).then(user => {
@@ -87,7 +87,7 @@ dashboardRouter.get('/users/update/:id', async (req, res) => {
 })
 
 // UPDATE databse using PUT /users/:id
-dashboardRouter.put('/users/update/:id', async (req, res) => {
+router.put('/users/update/:id', async (req, res) => {
   const data = req.body;
   await db.User.update({ email: data.email }, {
     where:{
@@ -118,7 +118,7 @@ dashboardRouter.put('/users/update/:id', async (req, res) => {
 })
 
 // DELETE database using DELETE /users/:id
-dashboardRouter.delete('/users/:id', async (req, res) => {
+router.delete('/users/:id', async (req, res) => {
   await db.User.destroy({
     where:{
       id:req.params.id
@@ -132,4 +132,4 @@ dashboardRouter.delete('/users/:id', async (req, res) => {
   })
 })
 
-module.exports = dashboardRouter;
+module.exports = router;

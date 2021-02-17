@@ -1,8 +1,8 @@
 // Import Module
 const express = require('express');
 const morgan = require('morgan');
-const gameRouter = require('./routes/router-game.js');
-const dashboardRouter = require('./routes/router-dashboard.js');
+const gameRouter = require('./routes/game.routes');
+const dashboardRouter = require('./routes/dashboard.routes');
 const middleware = require('./utils/middleware');
 
 // Activte Express Module
