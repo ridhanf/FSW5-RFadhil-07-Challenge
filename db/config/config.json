@@ -14,10 +14,18 @@
     "dialect": "postgres"
   },
   "production": {
-    "username": "fadhil",
-    "password": "passwordpalingsusah",
-    "database": "fadhilDB_production",
-    "host": "127.0.0.1",
-    "dialect": "postgres"
+    "use_env_variable": "DATABASE_URL",
+    "host": "ec2-54-90-55-211.compute-1.amazonaws.com",
+    "database": "d8pogrus21hllo",
+    "username": "yfebquowyrnqdr",
+    "port": "5432",
+    "password": "eff6da9e6888b51d787f3e2b226e8b16e1cbace7d98b88d05d7dcfcbf9136ba5",
+    "dialect": "postgres",
+    "dialectOptions": {
+      "ssl": {
+        "require": true,
+        "rejectUnauthorized": false
+      }
+    }
   }
 }
