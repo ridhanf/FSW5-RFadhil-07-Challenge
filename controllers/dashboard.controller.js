@@ -1,4 +1,4 @@
-// Dashboard Controllers
+// Dashboard Controller
 
 const db = require('../db/models');
 const { v4: uuidv4 } = require('uuid');
