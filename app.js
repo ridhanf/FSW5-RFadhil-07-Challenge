@@ -3,7 +3,7 @@ const express = require('express');
 const morgan = require('morgan');
 const gameRouter = require('./routes/game.routes');
 const dashboardRouter = require('./routes/dashboard.routes');
-const middleware = require('./utils/middleware');
+const errorMiddleware = require('./utils/error.middleware');
 const homeController = require('./controllers/home.controller');
 
 // Activte Express Module
@@ -24,7 +24,7 @@ app.use('/game', gameRouter);
 app.use('/dashboard', dashboardRouter);
 
 // Error Handlers
-app.use(middleware.errorHandler); // Internal Server Error Handler
-app.use(middleware.error404Handler); // Error 404 Handler
+app.use(errorMiddleware.errorHandler); // Internal Server Error Handler
+app.use(errorMiddleware.error404Handler); // Error 404 Handler
 
 module.exports = app;
