@@ -17,6 +17,6 @@ router.post('/users/create', dashboardController.createNewUser); // CREATE datab
 router.get('/users/:id', dashboardController.showSingleUserData); // READ database using GET /users/:id
 router.get('/users/update/:id', restrict, dashboardController.showUpdatePage); // GET create page for POST /users/create
 router.put('/users/update/:id', restrict, dashboardController.updateUser); // UPDATE databse using PUT /users/:id
-router.delete('/users/:id', restrict, dashboardController.deleteUser); // DELETE database using DELETE /users/:id
+router.delete('/users/:id', dashboardController.deleteUser); // DELETE database using DELETE /users/:id
 
 module.exports = router;
