@@ -1,8 +1,8 @@
-## Code Challenge Chapter 6 | CRUD Dashboard | Binar Academy
+## Code Challenge Chapter 7 | CRUD Dashboard | Binar Academy
 
 ### Description
 
-This is a landing page with paper rock scissors game and CRUD Dashboard using NodeJS, Express, PostgreSQL and Sequelize. This repository created to complete the Code Challenge of Chapter 6 from Binar Academy. There are 4 tables on the database after installation: `user_game`, `user_game_biodata`, `user_game_history`, `SequelizeMeta` (stores postgres setting).
+This is a landing page with paper rock scissors game and CRUD Dashboard using NodeJS, Express, PostgreSQL and Sequelize. This app also provide RESTful API with JWT Authentication. This repository created to complete the Code Challenge of Chapter 7 from Binar Academy. There are 4 tables on the database after installation: `user_game`, `user_game_biodata`, `user_game_history`, `SequelizeMeta` (stores postgres setting).
 
 ![Admin Login](https://github.com/ridhanf/FSW5-RFadhil-06-Challenge/blob/feature/dashboard/preview/admin-login.png?raw=true)
 ![Admin Dashboard](https://github.com/ridhanf/FSW5-RFadhil-06-Challenge/blob/feature/dashboard/preview/admin-dashboard.png?raw=true)
@@ -35,8 +35,8 @@ DELETE /dashboard/users/:id           """Delete User"""
 **1. Clone the source code**
 
 ```
-$ git clone https://github.com/ridhanf/FSW5-RFadhil-06-Challenge.git
-$ cd FSW5-RFadhil-06-Challenge
+$ git clone git@github.com:ridhanf/FSW5-RFadhil-07-Challenge.git
+$ cd FSW5-RFadhil-07-Challenge
 ```
 
 **2. Install Dependencies**
