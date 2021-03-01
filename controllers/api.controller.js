@@ -3,19 +3,26 @@
 const { v4: uuidv4 } = require('uuid')
 const db = require('../db/models')
 
+const apiIndex = async (req, res) => {
+  res.status(200).json({
+    "message": "Welcome to Game API",
+    "api/v1/playes": "Get All Players"
+  })
+}
+
 const getAllPlayers = async (req, res) => {
-  const players = await db.Player.findAll({
-    include: [db.PlayerBio, db.PlayerHistory],
+  const players = await db.User.findAll({
+    include: [db.UserBio, db.UserHistory],
   })
   res.json({ players })
 }
 
 const getPlayerById = async (req, res) => {
-  const player = await db.Player.findOne({
+  const player = await db.User.findOne({
     where: {
       id: req.params.id,
     },
-    include: [db.PlayerBio, db.PlayerHistory],
+    include: [db.UserBio, db.UserHistory],
   })
   res.json({ player })
 }
@@ -23,22 +30,22 @@ const getPlayerById = async (req, res) => {
 const createPlayer = async (req, res) => {
   const player = req.body
   const uuid = uuidv4()
-  await db.Player.create(
+  await db.User.create(
     {
       id: uuid,
       username: player.username,
       email: player.email,
-      PlayerBio: {
+      UserBio: {
         uid: uuid,
       },
-      PlayerHistories: [
+      UserHistories: [
         {
           uid: uuid,
         },
       ],
     },
     {
-      include: [db.PlayerBio, db.PlayerHistory],
+      include: [db.UserBio, db.UserHistory],
     }
   )
 
@@ -46,7 +53,7 @@ const createPlayer = async (req, res) => {
 }
 
 const deletePlayer = async (req, res) => {
-  await db.Player.destroy({
+  await db.User.destroy({
     where: {
       id: req.params.id,
     },
@@ -58,7 +65,7 @@ const deletePlayer = async (req, res) => {
 const updatePlayer = async (req, res) => {
   const data = req.body
 
-  await db.Player.update(
+  await db.User.update(
     { email: data.email },
     {
       where: {
@@ -67,7 +74,7 @@ const updatePlayer = async (req, res) => {
     }
   )
 
-  await db.PlayerBio.update(
+  await db.UserBio.update(
     {
       first_name: data.first_name,
       last_name: data.last_name,
@@ -80,7 +87,7 @@ const updatePlayer = async (req, res) => {
     }
   )
 
-  await db.PlayerHistory.update(
+  await db.UserHistory.update(
     {
       level: data.level,
       experience: data.experience,
@@ -96,6 +103,7 @@ const updatePlayer = async (req, res) => {
 }
 
 module.exports = {
+  apiIndex,
   getAllPlayers,
   getPlayerById,
   createPlayer,

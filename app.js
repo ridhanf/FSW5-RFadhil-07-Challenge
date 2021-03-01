@@ -23,7 +23,7 @@ app.use(morgan('dev'));
 app.get('/', homeController.showHomePage);
 app.use('/game', gameRouter);
 app.use('/dashboard', dashboardRouter);
-app.use('/api', apiRouter)
+app.use('/api/v1', apiRouter)
 
 // Error Handlers
 app.use(errorMiddleware.errorHandler); // Internal Server Error Handler
