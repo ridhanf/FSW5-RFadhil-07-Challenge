@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const gameRouter = require('./routes/game.routes');
 const dashboardRouter = require('./routes/dashboard.routes');
 const middleware = require('./utils/middleware');
+const homeController = require('./controllers/home.controller');
 
 // Activte Express Module
 const app = express();
@@ -16,13 +17,11 @@ app.set('view engine', 'ejs');
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(morgan('dev'));
-app.use('/game', gameRouter);
-app.use('/dashboard', dashboardRouter);
 
 // Routing (Endpoints and Handlers)
-app.get('/', (req, res) => {
-  res.status(200).render('./index.ejs');
-})
+app.get('/', homeController.showHomePage);
+app.use('/game', gameRouter);
+app.use('/dashboard', dashboardRouter);
 
 // Error Handlers
 app.use(middleware.errorHandler); // Internal Server Error Handler

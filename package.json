@@ -1,7 +1,7 @@
 {
-  "name": "binar-portfolio",
+  "name": "binar-ch07-challenge",
   "version": "1.0.0",
-  "description": "Binar Chapter 05 Code Challenge",
+  "description": "Binar Chapter 07 Code Challenge",
   "main": "app.js",
   "scripts": {
     "start": "node server.js",
