@@ -2,6 +2,8 @@
 const {Model} = require('sequelize');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const { v4: uuidv4 } = require('uuid');
+const db = require('.');
 
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
@@ -31,11 +33,25 @@ module.exports = (sequelize, DataTypes) => {
       return bcrypt.hashSync(password, 10)
     }
 
-    static register = ({username, password}) => {
+    static register = ({username, email, password}, uuid) => {
       const encryptedPassword = this.encrypt(password)
       return this.create({
+        id: uuid,
         username,
-        password: encryptedPassword
+        email,
+        password: encryptedPassword,
+        UserBio: {
+          uid: uuid
+        },
+        UserHistories: [
+          {
+            log_id: uuidv4(),
+            user_id: uuid
+          }
+        ]
+      },
+      {
+        include: [db.UserBio, db.UserHistory]
       })
     }
 

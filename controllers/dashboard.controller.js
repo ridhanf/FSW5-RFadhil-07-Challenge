@@ -27,27 +27,34 @@ const showCreatePage = async (req, res) => {
   res.status(200).render('dashboard/create');
 }
 
-const createNewUser = async (req, res) => {
+const createNewUser = async (req, res, next) => {
   const user = req.body;
   const uuid = uuidv4();
-  await db.User.create({
-    id: uuid,
-    username: user.username,
-    email: user.email,
-    password: user.password,
-    UserBio: {
-      uid: uuid
-    },
-    UserHistories: [
-      {
-        log_id: uuidv4(),
-        user_id: uuid
-      }
-    ]
-  },
-  {
-    include: [db.UserBio, db.UserHistory]
-  })
+  console.log(db.User);
+  await db.User.register(user, uuid)
+    .then((user) => {
+      console.log(user);
+      res.status(200).json(user);
+    })
+    .catch((error) => next(error.message))
+  // await db.User.create({
+  //   id: uuid,
+  //   username: user.username,
+  //   email: user.email,
+  //   password: user.password,
+  //   UserBio: {
+  //     uid: uuid
+  //   },
+  //   UserHistories: [
+  //     {
+  //       log_id: uuidv4(),
+  //       user_id: uuid
+  //     }
+  //   ]
+  // },
+  // {
+  //   include: [db.UserBio, db.UserHistory]
+  // })
   res.status(201).redirect('/dashboard/users');
 }
 
