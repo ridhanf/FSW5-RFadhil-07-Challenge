@@ -3,6 +3,7 @@ const express = require('express');
 const morgan = require('morgan');
 const gameRouter = require('./routes/game.routes');
 const dashboardRouter = require('./routes/dashboard.routes');
+const apiRouter = require('./routes/api.routes');
 const errorMiddleware = require('./utils/error.middleware');
 const homeController = require('./controllers/home.controller');
 
@@ -22,6 +23,7 @@ app.use(morgan('dev'));
 app.get('/', homeController.showHomePage);
 app.use('/game', gameRouter);
 app.use('/dashboard', dashboardRouter);
+app.use('/api', apiRouter)
 
 // Error Handlers
 app.use(errorMiddleware.errorHandler); // Internal Server Error Handler
