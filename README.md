@@ -16,8 +16,13 @@ Landing Page Mobile        |  Game Mobile
 Routes:
 
 ```
+LANDING PAGE
 GET    /                              """Landing Page"""
-GET    /game                          """Game"""
+
+GAME
+GET    /game                          """Game Page"""
+
+DASHBOARD
 GET    /dashbarod                     """Admin Login"""
 POST   /login                         """Simple login authentication"""
 GET    /dashboard/users               """Admin Dashboard"""
@@ -27,6 +32,14 @@ GET    /dashboard/users/:id           """Player Detail Info"""
 GET    /dashboard/users/update/:id    """Update player Form"""
 PUT    /dashboard/users/update/:id    """Update User Info"""
 DELETE /dashboard/users/:id           """Delete User"""
+
+RESTful API
+GET    /api/v1/                       """API Index"""
+GET    /api/v1/players                """Get All Players"""
+POST   /api/v1/players/create         """Create New Player"""
+GET    /api/v1/players/:id            """Get Player by ID"""
+PUT    /api/v1/players/update/:id     """Update Player by ID"""
+DELETE /api/v1/players/delete/:id     """Delete Player by ID"""
 ```
 
 
