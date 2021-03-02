@@ -33,7 +33,7 @@ module.exports = (sequelize, DataTypes) => {
     }
 
     static register = ({username, email, password}, uuid, models) => {
-      const encryptedPassword = this.encrypt(password)
+      const encryptedPassword = this.encrypt(password+'')
       return this.create({
         id: uuid,
         username,

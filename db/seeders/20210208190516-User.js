@@ -5,10 +5,18 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.bulkInsert('user_game', [
       {
+        id: 'e7516524-7b5c-11eb-9439-0242ac130002',
+        username: 'binar',
+        email: 'binar@binar.co.id',
+        password: bcrypt.hashSync('binar', 10),
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
         id: '06896bd4-8cbc-48c6-8c46-9364a6d939c4',
         username: 'rfadhil',
         email: 'ridhanfadhilah@gmail.com',
-        password: bcrypt.hashSync('12345678', 10),
+        password: bcrypt.hashSync('passwordpalingsusah', 10),
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -24,7 +32,7 @@ module.exports = {
         id: '7bbe267d-e1aa-41d5-9a48-50e74fc04400',
         username: 'sabrina',
         email: 'sabrina@binar.co.id',
-        password: bcrypt.hashSync('12345678', 10),
+        password: bcrypt.hashSync('sabrina', 10),
         createdAt: new Date(),
         updatedAt: new Date()
       }
