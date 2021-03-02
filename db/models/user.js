@@ -39,6 +39,7 @@ module.exports = (sequelize, DataTypes) => {
         username,
         email,
         password: encryptedPassword,
+        isAdmin: false,
         UserBio: {
           uid: uuid
         },
@@ -60,11 +61,11 @@ module.exports = (sequelize, DataTypes) => {
       try {
         const user = await this.findOne({ where: { username }})
         if (!user) {
-          return Promise.reject("User not found!");
+          return Promise.reject("USER NOT FOUND!");
         }
         const isPasswordValid = user.checkPassword(password)
         if (!isPasswordValid) {
-          return Promise.reject("Wrong password")
+          return Promise.reject("WRONG PASSWORD")
         }
         return Promise.resolve(user)
       } catch(err) {
@@ -105,6 +106,11 @@ module.exports = (sequelize, DataTypes) => {
     password: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    isAdmin: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+      allowNull:false
     }
   }, {
     sequelize,

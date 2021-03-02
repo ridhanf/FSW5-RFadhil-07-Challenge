@@ -7,6 +7,9 @@ const apiIndex = async (req, res) => {
   res.status(200).json({
     "message": "Welcome to Game API",
     "/api/v1/": "API Index",
+    "/api/v1/register": "Regiter User",
+    "/api/v1/login": "User Login",
+    "/api/v1/whoami": "Show Current User",
     "/api/v1/players": "Get All Players",
     "/api/v1/players/create": "Create New Player",
     "/api/v1/players/:id": "Get Player by ID",
@@ -43,10 +46,10 @@ const createPlayer = async (req, res) => {
 }
 
 const updatePlayer = async (req, res) => {
-  const data = await req.body
+  const user = await req.body
 
   await db.User.update(
-    { email: data.email },
+    { email: user.email },
     {
       where: {
         id: req.params.id,
@@ -56,9 +59,9 @@ const updatePlayer = async (req, res) => {
 
   await db.UserBio.update(
     {
-      firstname: data.firstname,
-      lastname: data.lastname,
-      city: data.city,
+      firstname: user.firstname,
+      lastname: user.lastname,
+      city: user.city,
     },
     {
       where: {
@@ -69,8 +72,8 @@ const updatePlayer = async (req, res) => {
 
   await db.UserHistory.update(
     {
-      winStatus: data.winStatus,
-      score: data.score,
+      winStatus: user.winStatus,
+      score: user.score,
     },
     {
       where: {
