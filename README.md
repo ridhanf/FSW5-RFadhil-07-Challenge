@@ -23,7 +23,7 @@ GAME
 GET    /game                          """Game Page"""
 
 DASHBOARD
-GET    /dashbarod                     """Admin Login"""
+GET    /dashboard                     """Admin Login"""
 POST   /login                         """Simple login authentication"""
 GET    /dashboard/users               """Admin Dashboard"""
 GET    /dashboard/create              """Create Player Form"""
