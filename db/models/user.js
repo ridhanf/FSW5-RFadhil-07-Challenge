@@ -39,6 +39,7 @@ module.exports = (sequelize, DataTypes) => {
         username,
         email,
         password: encryptedPassword,
+        isAdmin: false,
         UserBio: {
           uid: uuid
         },
@@ -105,6 +106,10 @@ module.exports = (sequelize, DataTypes) => {
     password: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    isAdmin: {
+      type: DataTypes.BOOLEAN,
+      allowNull:false
     }
   }, {
     sequelize,

@@ -7,8 +7,8 @@ const showDashboardPage = (req, res) => {
   res.status(200).render('dashboard/dashboard');
 }
 
-const loginHandler = (req, res, next) => {
-  db.User.authenticate(req.body)
+const loginHandler = async (req, res, next) => {
+  await db.User.authenticate(req.body)
     .then(user => {
       if (user.username === "admin") {
         console.log("ADMIN LOGIN RESOLVED");
@@ -30,13 +30,16 @@ const loginHandler = (req, res, next) => {
 }
 
 const showUsersData = async (req, res) => {
-  const users = db.User.findAll({
-    include: [db.UserBio, db.UserHistory],
+  const users = await db.User.findAll({
+    where: {
+        isAdmin: false
+      },
+    include: [db.UserBio, db.UserHistory]
   })
   res.status(200).render('dashboard/allUsers', { users })
 }
 
-const showCreatePage = async (req, res) => {
+const showCreatePage = (req, res) => {
   res.status(200).render('dashboard/create');
 }
 
