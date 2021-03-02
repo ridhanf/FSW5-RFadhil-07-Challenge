@@ -43,10 +43,10 @@ const createPlayer = async (req, res) => {
 }
 
 const updatePlayer = async (req, res) => {
-  const data = await req.body
+  const user = await req.body
 
   await db.User.update(
-    { email: data.email },
+    { email: user.email },
     {
       where: {
         id: req.params.id,
@@ -56,9 +56,9 @@ const updatePlayer = async (req, res) => {
 
   await db.UserBio.update(
     {
-      firstname: data.firstname,
-      lastname: data.lastname,
-      city: data.city,
+      firstname: user.firstname,
+      lastname: user.lastname,
+      city: user.city,
     },
     {
       where: {
@@ -69,8 +69,8 @@ const updatePlayer = async (req, res) => {
 
   await db.UserHistory.update(
     {
-      winStatus: data.winStatus,
-      score: data.score,
+      winStatus: user.winStatus,
+      score: user.score,
     },
     {
       where: {
