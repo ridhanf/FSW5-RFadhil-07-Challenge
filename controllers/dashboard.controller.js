@@ -7,17 +7,30 @@ const showDashboardPage = (req, res) => {
   res.status(200).render('dashboard/dashboard');
 }
 
-const loginHandler = async (req, res) => {
-  const body = await req.body
-  if ((req, body.username === 'admin' && req.body.password === 'admin')) {
-    res.redirect('/dashboard/users');
-  } else {
-    res.redirect('/dashboard');
-  }
+const loginHandler = (req, res, next) => {
+  db.User.authenticate(req.body)
+    .then(user => {
+      if (user.username === "admin") {
+        console.log("ADMIN LOGIN RESOLVED");
+        dataUser = {
+          id: user.id,
+          username: user.username,
+          token: user.generateToken()
+        }
+        res.status(200).redirect('/dashboard/users');
+      } else {
+        res.redirect('/dashboard');
+        next("USER UNAUTHORIZED");
+      }
+    })
+    .catch(error => {
+      console.log(error);
+      res.redirect('/dashboard');
+    })
 }
 
 const showUsersData = async (req, res) => {
-  const users = await db.User.findAll({
+  const users = db.User.findAll({
     include: [db.UserBio, db.UserHistory],
   })
   res.status(200).render('dashboard/allUsers', { users })
@@ -28,7 +41,7 @@ const showCreatePage = async (req, res) => {
 }
 
 const createNewUser = async (req, res, next) => {
-  const user = await req.body;
+  const user = req.body;
   const uuid = uuidv4();
   await db.User.register(user, uuid, db)
     .then(() => {
@@ -58,18 +71,18 @@ const showUpdatePage = async (req, res) => {
 }
 
 const updateUser = async (req, res) => {
-  const data = await req.body;
+  const user = req.body;
 
-  await db.User.update({ email: data.email }, {
+  await db.User.update({ email: user.email }, {
     where:{
       id:req.params.id
     }
   })
 
   await db.UserBio.update({
-    firstname:data.firstname,
-    lastname:data.lastname,
-    city: data.city
+    firstname:user.firstname,
+    lastname:user.lastname,
+    city: user.city
   },{
     where: {
       uid: req.params.id
@@ -78,8 +91,8 @@ const updateUser = async (req, res) => {
 
   await db.UserHistory.update(
     {
-      winStatus: data.winStatus,
-      score: data.score,
+      winStatus: user.winStatus,
+      score: user.score,
     },
     {
       where: {
@@ -98,7 +111,6 @@ const deleteUser = async (req, res) => {
     },
     include: [db.UserBio, db.UserHistory]
   }).then(() => {
-    // alert('User deleted');  
     res.status(201).redirect('/dashboard/users')
   }).catch(err => {
     res.status(400).json(`Can't delete article - ${err.message}`)
