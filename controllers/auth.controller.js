@@ -1,8 +1,10 @@
 // const passport = require('passport');
-const {User} = require('../db/models');
+const db = require('../db/models');
+const { v4: uuidv4 } = require('uuid');
 
 const register = (req, res, next) => {
-  User.register(req.body)
+  const uuid = uuidv4();
+  db.User.register(req.body, uuid, db)
     .then((user) => {
       console.log(user);
       res.status(200).json(user);
@@ -11,7 +13,7 @@ const register = (req, res, next) => {
 };
 
 const login =  (req, res, next) => {
-  User.authenticate(req.body)
+  db.User.authenticate(req.body)
     .then(user => {
       dataUser = {
         id: user.id,
@@ -32,15 +34,8 @@ const whoami = (req, res) => {
   // res.render('profile', req.user.dataValues)
 }
 
-const logout = (req, res) => {
-  // req.logout();
-  // res.redirect('/login');
-  res.status(200);
-}
-
 module.exports = {
   register,
   login,
-  whoami,
-  logout
+  whoami
 };
