@@ -35,6 +35,9 @@ DELETE /dashboard/users/:id           """Delete User"""
 
 RESTful API
 GET    /api/v1/                       """API Index"""
+POST   /api/v1/register               """Register User"""
+POST   /api/v1/login                  """User Login"""
+GET    /api/v1/whoami                 """Show Current User"""
 GET    /api/v1/players                """Get All Players"""
 POST   /api/v1/players/create         """Create New Player"""
 GET    /api/v1/players/:id            """Get Player by ID"""
