@@ -6,7 +6,12 @@ const db = require('../db/models')
 const apiIndex = async (req, res) => {
   res.status(200).json({
     "message": "Welcome to Game API",
-    "api/v1/playes": "Get All Players"
+    "/api/v1/": "API Index",
+    "/api/v1/players": "Get All Players",
+    "/api/v1/players/create": "Create New Player",
+    "/api/v1/players/:id": "Get Player by ID",
+    "/api/v1/players/update/:id": "Update Player by ID",
+    "/api/v1/players/delete/:id": "Delete Player by ID"
   })
 }
 
