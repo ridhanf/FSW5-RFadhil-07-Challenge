@@ -11,59 +11,34 @@ const apiIndex = async (req, res) => {
 }
 
 const getAllPlayers = async (req, res) => {
-  const players = await db.User.findAll({
+  const users = await db.User.findAll({
     include: [db.UserBio, db.UserHistory],
   })
-  res.json({ players })
+  res.json({ users })
 }
 
 const getPlayerById = async (req, res) => {
-  const player = await db.User.findOne({
+  const user = await db.User.findOne({
     where: {
       id: req.params.id,
     },
     include: [db.UserBio, db.UserHistory],
   })
-  res.json({ player })
+  res.json({ user })
 }
 
 const createPlayer = async (req, res) => {
-  const player = req.body
+  const user = req.body
   const uuid = uuidv4()
-  await db.User.create(
-    {
-      id: uuid,
-      username: player.username,
-      email: player.email,
-      UserBio: {
-        uid: uuid,
-      },
-      UserHistories: [
-        {
-          uid: uuid,
-        },
-      ],
-    },
-    {
-      include: [db.UserBio, db.UserHistory],
-    }
-  )
-
-  res.json({ status: 'Created' })
-}
-
-const deletePlayer = async (req, res) => {
-  await db.User.destroy({
-    where: {
-      id: req.params.id,
-    },
-  })
-
-  res.json({ status: 'Deleted' })
+  await db.User.register(user, uuid, db)
+    .then(() => {
+      res.json({ status: 'Created' });
+    })
+    .catch((error) => next(error.message))
 }
 
 const updatePlayer = async (req, res) => {
-  const data = req.body
+  const data = await req.body
 
   await db.User.update(
     { email: data.email },
@@ -76,8 +51,8 @@ const updatePlayer = async (req, res) => {
 
   await db.UserBio.update(
     {
-      first_name: data.first_name,
-      last_name: data.last_name,
+      firstname: data.firstname,
+      lastname: data.lastname,
       city: data.city,
     },
     {
@@ -89,8 +64,8 @@ const updatePlayer = async (req, res) => {
 
   await db.UserHistory.update(
     {
-      level: data.level,
-      experience: data.experience,
+      winStatus: data.winStatus,
+      score: data.score,
     },
     {
       where: {
@@ -99,7 +74,17 @@ const updatePlayer = async (req, res) => {
     }
   )
 
-  res.json({ ok: 'Updated' })
+  res.json({ status: 'Updated' })
+}
+
+const deletePlayer = async (req, res) => {
+  await db.User.destroy({
+    where: {
+      id: req.params.id,
+    },
+  })
+
+  res.json({ status: 'Deleted' })
 }
 
 module.exports = {

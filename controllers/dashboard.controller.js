@@ -8,7 +8,7 @@ const showDashboardPage = (req, res) => {
 }
 
 const loginHandler = async (req, res) => {
-  const body = req.body
+  const body = await req.body
   if ((req, body.username === 'admin' && req.body.password === 'admin')) {
     res.redirect('/dashboard/users');
   } else {
@@ -28,7 +28,7 @@ const showCreatePage = async (req, res) => {
 }
 
 const createNewUser = async (req, res, next) => {
-  const user = req.body;
+  const user = await req.body;
   const uuid = uuidv4();
   await db.User.register(user, uuid, db)
     .then(() => {
@@ -58,12 +58,14 @@ const showUpdatePage = async (req, res) => {
 }
 
 const updateUser = async (req, res) => {
-  const data = req.body;
+  const data = await req.body;
+
   await db.User.update({ email: data.email }, {
     where:{
       id:req.params.id
     }
   })
+
   await db.UserBio.update({
     firstname:data.firstname,
     lastname:data.lastname,
@@ -73,6 +75,7 @@ const updateUser = async (req, res) => {
       uid: req.params.id
     }
   })
+
   await db.UserHistory.update(
     {
       winStatus: data.winStatus,
@@ -84,6 +87,7 @@ const updateUser = async (req, res) => {
       },
     }
   )
+  
   res.redirect(`/dashboard/users/${req.params.id}`)
 }
 
