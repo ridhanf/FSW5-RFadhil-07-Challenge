@@ -24,18 +24,15 @@ module.exports = (sequelize, DataTypes) => {
     },
     firstname: {
       type: DataTypes.STRING,
-      defaultValue: '',
-      allowNull: false
+      defaultValue: ''
     },
     lastname: {
       type: DataTypes.STRING,
-      defaultValue: '',
-      allowNull: false
+      defaultValue: ''
     },
     city: {
       type: DataTypes.STRING,
-      defaultValue: '',
-      allowNull: false
+      defaultValue: ''
     }
   }, {
     sequelize,
