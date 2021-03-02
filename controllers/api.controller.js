@@ -7,7 +7,7 @@ const apiIndex = async (req, res) => {
   res.status(200).json({
     "message": "Welcome to Game API",
     "/api/v1/": "API Index",
-    "/api/v1/register": "Regiter User",
+    "/api/v1/register": "Register User",
     "/api/v1/login": "User Login",
     "/api/v1/whoami": "Show Current User",
     "/api/v1/players": "Get All Players",
