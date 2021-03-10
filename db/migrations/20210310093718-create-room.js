@@ -2,7 +2,7 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('game_room', {
-      id: {
+      room_id: {
         allowNull: false,
         primaryKey: true,
         type: Sequelize.UUID
@@ -12,10 +12,10 @@ module.exports = {
         type: Sequelize.STRING,
         unique: true
       },
-      player1ID: {
+      player1_id: {
         type: Sequelize.UUID
       },
-      player2ID: {
+      player2_id: {
         type: Sequelize.UUID
       },
       createdAt: {

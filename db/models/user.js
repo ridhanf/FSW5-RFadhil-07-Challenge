@@ -29,7 +29,7 @@ module.exports = (sequelize, DataTypes) => {
 
       this.hasOne(models.Room, {
         foreignKey: {
-          name: 'player1ID'
+          name: 'player1_id'
         }
       })
     }

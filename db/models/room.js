@@ -12,15 +12,18 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Room.belongsTo(models.User, {
-        foreignKey: 'player1ID'
+        foreignKey: 'player1_id'
       })
     }
   };
   Room.init({
-    id: DataTypes.UUID,
+    room_id: {
+      type: DataTypes.UUID,
+      primaryKey: true
+    },
     name: DataTypes.STRING,
-    player1ID: DataTypes.UUID,
-    player2ID: DataTypes.UUID
+    player1_id: DataTypes.UUID,
+    player2_id: DataTypes.UUID
   }, {
     sequelize,
     modelName: 'Room',

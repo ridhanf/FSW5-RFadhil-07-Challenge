@@ -18,9 +18,15 @@ const apiIndex = async (req, res) => {
   })
 }
 
-const createRoom = async (req, res) => {
-  // const room = await db.Room.register()
-  res.json({ status: "Pending"})
+const createRoom = async (req, res, next) => {
+  await db.Room.create({
+    room_id: uuidv4(),
+    name: req.body.name,
+    player1_id: null, // PR
+    player2_id: null  // PR
+  }).then((room) => {
+      res.json({room_id: room.room_id});
+  }).catch((error) => next(error.message))
 }
 
 const getAllPlayers = async (req, res) => {
