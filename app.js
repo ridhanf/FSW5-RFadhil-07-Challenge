@@ -6,6 +6,8 @@ const dashboardRouter = require('./routes/dashboard.routes');
 const apiRouter = require('./routes/api.routes');
 const errorMiddleware = require('./utils/error.middleware');
 const homeController = require('./controllers/home.controller');
+const swaggerUI = require('swagger-ui-express');
+const swaggerJSON = require('./swagger.json');
 
 // Activte Express Module
 const app = express();
@@ -18,6 +20,7 @@ app.set('view engine', 'ejs');
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(morgan('dev'));
+app.use('/docs', swaggerUI.serve, swaggerUI.setup(swaggerJSON)); // Swagger
 
 // Routing (Endpoints and Handlers)
 app.get('/', homeController.showHomePage);
