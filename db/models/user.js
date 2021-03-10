@@ -26,6 +26,12 @@ module.exports = (sequelize, DataTypes) => {
           allowNull: false
         }
       })
+
+      this.hasOne(models.Room, {
+        foreignKey: {
+          name: 'player1ID'
+        }
+      })
     }
 
     static encrypt = (password) => {

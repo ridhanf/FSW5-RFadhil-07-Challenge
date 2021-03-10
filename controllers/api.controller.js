@@ -18,6 +18,11 @@ const apiIndex = async (req, res) => {
   })
 }
 
+const createRoom = async (req, res) => {
+  // const room = await db.Room.register()
+  res.json({ status: "Pending"})
+}
+
 const getAllPlayers = async (req, res) => {
   const users = await db.User.findAll({
     include: [db.UserBio, db.UserHistory],
@@ -97,6 +102,7 @@ const deletePlayer = async (req, res) => {
 
 module.exports = {
   apiIndex,
+  createRoom,
   getAllPlayers,
   getPlayerById,
   createPlayer,
