@@ -34,7 +34,7 @@ PUT    /dashboard/users/update/:id    """Update User Info"""
 DELETE /dashboard/users/:id           """Delete User"""
 
 RESTful API
-GET    /api/v1/                       """API Index"""
+GET    /docs                          """API Documentation""
 POST   /api/v1/register               """Register User"""
 POST   /api/v1/login                  """User Login"""
 GET    /api/v1/whoami                 """Show Current User"""
